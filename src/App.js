@@ -1,12 +1,10 @@
 import './App.css';
-//import firebase config info
-import firebase from './firebase'
+import GetListy from './components/GetListy';
 
 function App() {
-  console.log(firebase);
   return (
     <>
-      
+      <GetListy/>
     </>
   );
 }
