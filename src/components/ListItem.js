@@ -4,7 +4,8 @@
 function ListItem() {
   return (
     <>
-      
+      <li>list item</li>
+      <li>party</li>
     </>
   );
 }

@@ -10,8 +10,4 @@ function MetaList() {
   );
 }
 
-
-import ListItem from "./ListItem";
-
-
 export default MetaList;

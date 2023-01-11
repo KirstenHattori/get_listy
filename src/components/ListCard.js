@@ -5,11 +5,20 @@ import ListItem from "./ListItem";
 function ListCard() {
   return (
     <>
-      <ListItem/>
+    <ul>
+        {
+          //map through the props and return a list card for each type of list and pass the array of listItems to ListItem as props
+        }
+      <li className="listCard">
+        <ul className="titleWillBeDynamic">
+          <ListItem/>
+          
+        </ul>
+      </li>
+    </ul>
     </>
   );
 }
-import ListItem from "./ListItem";
 
 
 export default ListCard;
