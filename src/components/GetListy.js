@@ -23,7 +23,7 @@ function GetListy() {
   //4. side effect to run on component mount
   //4a. set up firebase db ref and all the boiler plate stuff
   useEffect(()=>{
-    const db = getDatabase(firebase);
+    // const db = getDatabase(firebase);
     // const dbRef = ref(db);
   })
 
