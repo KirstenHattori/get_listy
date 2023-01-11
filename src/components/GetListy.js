@@ -3,7 +3,8 @@
 // + holds firebase side effect(useEffect) and uses onValue to listen for changes to db.on state change: (re)render MetaList which triggers(re)renders of Lists and ListItems
 
 //1. import React Hooks
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+//useState
 
 //import child components
 import Form from './Form';
