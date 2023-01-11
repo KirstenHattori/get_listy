@@ -12,19 +12,19 @@ import MetaList from './MetaList';
 //2. import firebase config info
 import firebase from '../firebase';
 // 2a. import necessary modules to complete steps in 4. 
-import { onValue, ref, getDatabase, remove, push } from 'firebase/database';
+// import { onValue, ref, getDatabase, remove, push } from 'firebase/database';
 
 
 
 function GetListy() {
   //3. initiailize piece of state that will hold the data received from firebase db. - will be passed to Form as props for it to update when user submits new list (& list name)
-  const [lists, setLists] = useState([]);
+  // const [lists, setLists] = useState([]);
   
   //4. side effect to run on component mount
   //4a. set up firebase db ref and all the boiler plate stuff
   useEffect(()=>{
     const db = getDatabase(firebase);
-    const dbRef = ref(db);
+    // const dbRef = ref(db);
   })
 
   console.log(firebase);
