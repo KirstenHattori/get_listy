@@ -5,7 +5,7 @@ import ListCard from "./ListCard";
 function MetaList() {
   return (
     <>
-      <ListCard />
+      <ListCard/>
     </>
   );
 }
