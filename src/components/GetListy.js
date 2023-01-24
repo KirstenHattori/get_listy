@@ -3,7 +3,7 @@
 // + holds firebase side effect(useEffect) and uses onValue to listen for changes to db.on state change: (re)render MetaList which triggers(re)renders of Lists and ListItems
 
 //1. import React Hooks
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 //useState
 
 //import child components
@@ -13,27 +13,50 @@ import MetaList from './MetaList';
 //2. import firebase config info
 import firebase from '../firebase';
 // 2a. import necessary modules to complete steps in 4. 
-// import { onValue, ref, getDatabase, remove, push } from 'firebase/database';
-
+import { onValue, ref, getDatabase } from 'firebase/database';
+//, remove, push
 
 
 function GetListy() {
   //3. initiailize piece of state that will hold the data received from firebase db. - will be passed to Form as props for it to update when user submits new list (& list name)
-  // const [lists, setLists] = useState([]);
+  const [lists, setLists] = useState([]);
   
   //4. side effect to run on component mount
-  //4a. set up firebase db ref and all the boiler plate stuff
+  //4a. set up firebase db ref and all the boiler plate stuff = store db and create reference to it
   useEffect(()=>{
-    // const db = getDatabase(firebase);
-    // const dbRef = ref(db);
-  })
+    const db = getDatabase(firebase);
+    const dbRef = ref(db);
 
-  console.log(firebase);
+    // console.log(firebase);
+
+    // 5. use onValue to listen for changes to the db and save the lists and their items that are currently in the db within state (=call the state updater funciton = setLists)
+    onValue(dbRef, (dbResponse)=>{
+      const dbValue = dbResponse.val();
+      console.log(dbValue);
+
+      const arrayOfLists = [];
+
+      for (let propertyKey in dbValue){
+        console.log(dbValue[propertyKey]);
+
+        arrayOfLists.push({
+          listItems: dbValue[propertyKey],
+          id: propertyKey
+        });
+      }
+
+      setLists(arrayOfLists);
+    });
+
+  }, []);
 
 
+  console.log(lists);
   return(
     <>
       <Form/>
+
+      {/* 7. pass the lists piece of state as props to MetaList to generate the nec child components for the different pieces of data */}
       <MetaList/>
     </>
   );
