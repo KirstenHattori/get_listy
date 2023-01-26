@@ -20,6 +20,14 @@ import { onValue, ref, getDatabase } from 'firebase/database';
 function GetListy() {
   //3. initiailize piece of state that will hold the data received from firebase db. - will be passed to Form as props for it to update when user submits new list (& list name)
   const [lists, setLists] = useState([]);
+
+  // 9B. initialize a piece of state to keep track of the internal state of the text inputs
+    // pass down as props to form
+      // pass the updater to form to capture the usder inputs
+      // pass the state variable to firebase pushing function ... should this be a component? 
+  const [itemTextInput, setItemTextInput] = useState("");
+  const [listTextInput, setListTextInput] = useState("");
+
   
   //4. side effect to run on component mount
   //4a. set up firebase db ref and all the boiler plate stuff = store db and create reference to it
@@ -40,8 +48,10 @@ function GetListy() {
         console.log(dbValue[propertyKey]);
 
         arrayOfLists.push({
-          listItems: dbValue[propertyKey],
-          id: propertyKey
+          listName: {
+            listItems: dbValue[propertyKey],
+            id: propertyKey
+          }
         });
       }
 
@@ -54,10 +64,10 @@ function GetListy() {
   console.log(lists);
   return(
     <>
-      <Form/>
+      <Form itemProps={[itemTextInput, setItemTextInput]} listProp={[listTextInput, setListTextInput]}/>
 
       {/* 7. pass the lists piece of state as props to MetaList to generate the nec child components for the different pieces of data */}
-      <MetaList/>
+      <MetaList listOfLists={setLists}/>
     </>
   );
 }

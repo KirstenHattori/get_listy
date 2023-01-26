@@ -1,11 +1,19 @@
 //map through the metaList piece of state and generate an li for each List title and pass them the array of listItems as props
 
+// import { useState } from "react";
+
 import ListCard from "./ListCard";
 
-function MetaList() {
+function MetaList(lists) {
+  // const [lists, setLists] = useState({});
+
   return (
     <>
-      <ListCard/>
+    {
+      lists.map((list)=>{
+        return <ListCard dataFromFirebase={lists}/>
+      })
+    }
     </>
   );
 }
