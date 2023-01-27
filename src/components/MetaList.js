@@ -4,16 +4,19 @@
 
 import ListCard from "./ListCard";
 
+//receive firebase ref as prop from GetListy,
+  //use the connection and onValue to map through the data and generate nec lists accordingly
+
 function MetaList(lists) {
   // const [lists, setLists] = useState({});
 
   return (
     <>
-    {
+    {/* {
       lists.map((list)=>{
         return <ListCard dataFromFirebase={lists}/>
       })
-    }
+    } */}
     </>
   );
 }

@@ -34,7 +34,10 @@ function Form() {
   }
 
   // create an object to contain the different lists in firebase 
-  const listObject = {listTextInput: { itemTextInput }}
+  const listObject = {
+    userListName : listTextInput,
+    listItems: [itemTextInput]
+  }
 
   // 2. define a submit event handler
   // when the form is submitted, prevent the form from refreshing the page
