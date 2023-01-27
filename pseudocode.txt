@@ -1,0 +1,29 @@
+//App.js returns:
+  -Header.js
+  -Footer.js
+  -GetListy.js
+
+//GetListy.js 
+  -import firebase config info module
+  functions as a props bridge between Form.js and MetaList.js by:
+    containing state init and passing it to Form as a prop to be updated by form submit
+  +holds firebase side effect (useEffect) and uses onValue to listen for changes to db. on state change: (re)render MetaList which triggers (re)renders of Lists and ListItems
+  
+
+//Form.js
+  -bind the form internal state to GetListy's state so that react can micromanage and have controlled components
+  -prevent form from submitting if there is user error ie. empty inputs. display error message to reflect issue
+
+//MetaList.js
+  -map through the metaList piece of state and generate an li for each List title and pass them the array of listItems as props
+
+//List.js
+  -render a title for the List and ListItem components based on the props recieved from metaList
+
+//ListItem.js
+  -receive an item in the array of listItems from List as props and render an li element
+  -render a button to delete item from the list - interacts with firebase(onValue)
+
+
+
+
