@@ -17,6 +17,7 @@ function MetaList(lists) {
         return <ListCard dataFromFirebase={lists}/>
       })
     } */}
+    <ListCard/>
     </>
   );
 }

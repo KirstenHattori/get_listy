@@ -6,9 +6,9 @@
 // import { useEffect, useState } from 'react';
 // //useState
 
-// //import child components
-// import Form from './Form';
-// import MetaList from './MetaList';
+//import child components
+import Form from './Form';
+import MetaList from './MetaList';
 
 // //2. import firebase config info
 // import firebase from '../firebase';
@@ -30,7 +30,7 @@ function GetListy() {
 
   return(
     <>
-      <Form/>
+      <Form instruction={'add a new list'}/>
 
       <MetaList />
     </>

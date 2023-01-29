@@ -1,8 +1,10 @@
 //render a title for the List and ListItem components based on the props recieved from metaList
 
+import Form from "./Form";
 import ListItem from "./ListItem";
 
 function ListCard() {
+  console.log("listCard has rendered");
   return (
     <>
     <ul>
@@ -11,8 +13,13 @@ function ListCard() {
         }
       <li className="listCard">
         <ul className="titleWillBeDynamic">
-          <ListItem/>
+          <li>
+            <ListItem/>
+          </li>
           
+          <li>
+            <Form instruction={"add to list"}/>
+          </li>
         </ul>
       </li>
     </ul>

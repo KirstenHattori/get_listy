@@ -2,9 +2,10 @@
 //render a button to delete item from the list - interacts with firebase(onValue)
 
 function ListItem() {
+  console.log("list item has rendered");
   return (
     <>
-      <li>list item</li>
+
     </>
   );
 }
